@@ -18,6 +18,7 @@ class RecipeApi extends Facade
      */
     protected static function getFacadeAccessor()
     {
+        dd("facade");
         return 'recipeapi';
     }
 }
