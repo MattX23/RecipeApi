@@ -49,4 +49,17 @@ class RecipeApiServiceProvider extends ServiceProvider
 
         $this->app->alias('recipeapi', RecipeApi::class);
     }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return string[]
+     */
+    public function provides()
+    {
+        return [
+            'recipeapi',
+        ];
+    }
+
 }
