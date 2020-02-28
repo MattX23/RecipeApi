@@ -43,6 +43,6 @@ class Recipes
     {
         $response = $this->client->get($this->domain.'/recipes/random?number=1&apiKey='.$this->apiKey);
 
-        return new Recipe($response->getBody());
+        return new Recipe($response->getBody()->getContents());
     }
 }
