@@ -22,6 +22,11 @@ class RecipeApi
         $this->apiKey = $apiKey;
     }
 
+    public function hello()
+    {
+        return "Hello";
+    }
+
     public function recipes()
     {
         return new Recipe($this->domain);

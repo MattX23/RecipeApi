@@ -6,6 +6,7 @@ namespace Mattx23\RecipeApi\Facades;
 use Illuminate\Support\Facades\Facade;
 /**
  * @method \MattX23\RecipeApi\Api\Recipes random
+ * @method \MattX23\RecipeApi\Api\Recipes hello
  */
 
 class RecipeApi extends Facade
