@@ -3,7 +3,6 @@
 
 namespace MattX23\RecipeApi\Api;
 
-
 use GuzzleHttp\Client;
 use MattX23\RecipeApi\Entity\Recipe;
 

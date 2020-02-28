@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Mattx23\RecipeApi\Facades;
+namespace MattX23\RecipeApi\Facades;
 
 use Illuminate\Support\Facades\Facade;
 /**
