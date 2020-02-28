@@ -3,6 +3,8 @@
 namespace MattX23\RecipeApi;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Contracts\Config\Repository;
+use Illuminate\Contracts\Container\Container;
 
 class RecipeApiServiceProvider extends ServiceProvider
 {
