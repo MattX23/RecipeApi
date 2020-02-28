@@ -36,6 +36,11 @@ class Recipes
         $this->domain = $domain;
     }
 
+    protected function toArray($contents)
+    {
+        return json_decode($contents);
+    }
+
     /**
      * @return \MattX23\RecipeApi\Entity\Recipe
      */
@@ -43,6 +48,8 @@ class Recipes
     {
         $response = $this->client->get($this->domain.'/recipes/random?number=1&apiKey='.$this->apiKey);
 
-        return new Recipe($response->getBody()->getContents());
+        $contents = $this->toArray($response->getBody()->getContents());
+
+        return new Recipe($contents);
     }
 }
