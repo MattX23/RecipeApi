@@ -1,0 +1,37 @@
+{
+    "name": "mattx23/recipe-api",
+    "authors": [
+        {
+            "name": "MattX23",
+            "email": "matt.wood001@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.3",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "~5.0|~6.0"
+    },
+    "require-dev": {
+        "illuminate/contracts": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
+        "illuminate/support": "^5.1|^5.2|^5.3|^5.4|^5.5|^5.6",
+        "phpspec/phpspec": "~2.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mattx23\\RecipeApi\\": "src/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MattX23\\RecipeApi\\RecipeApiServiceProvider"
+            ],
+            "aliases": {
+                "RecipeApi": "MattX23\\RecipeApi\\Facades\\RecipeApi"
+            }
+        }
+    }
+}
