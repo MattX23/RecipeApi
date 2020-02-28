@@ -38,14 +38,25 @@ class RecipeApiServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('recipeapi', function (Container $app) {
+
+        $this->app->bind('recipeapi',function() {
+
             $config = app(Repository::class);
             $domain = $config->get('recipeapi.domain');
             $apiKey = $config->get('recipeapi.apiKey');
 
             return new RecipeApi($domain, $apiKey);
+
         });
 
-        $this->app->alias('recipeapi', RecipeApi::class);
+//        $this->app->singleton('recipeapi', function (Container $app) {
+//            $config = app(Repository::class);
+//            $domain = $config->get('recipeapi.domain');
+//            $apiKey = $config->get('recipeapi.apiKey');
+//
+//            return new RecipeApi($domain, $apiKey);
+//        });
+
+//        $this->app->alias('recipeapi', RecipeApi::class);
     }
 }
