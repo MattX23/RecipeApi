@@ -10,7 +10,6 @@ class Recipe
 
     public function __construct($parameters = [])
     {
-        dd("yo");
         $this->recipe = Arr::get($parameters,'recipe');
     }
 }

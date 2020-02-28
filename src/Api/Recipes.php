@@ -9,6 +9,11 @@ use MattX23\RecipeApi\Entity\Recipe;
 class Recipes
 {
     /**
+     * @var string|null
+     */
+    protected $apiKey;
+
+    /**
      * @var \GuzzleHttp\Client
      */
     protected $client;
@@ -19,12 +24,14 @@ class Recipes
     protected $domain;
 
     /**
-     * Jokes constructor.
+     * Recipes constructor.
      *
-     * @param string $domain
+     * @param string|null $domain
+     * @param string|null $apiKey
      */
-    public function __construct(string $domain = null)
+    public function __construct(string $domain = null, string $apiKey = null)
     {
+        $this->apiKey = $apiKey;
         $this->client = new Client();
         $this->domain = $domain;
     }
@@ -34,7 +41,7 @@ class Recipes
      */
     public function random()
     {
-        $response = $this->client->get($this->domain.'');
+        $response = $this->client->get($this->domain.'/recipes/random?number=1&apiKey='.$this->apiKey);
 
         return new Recipe($response->getBody());
     }

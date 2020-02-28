@@ -2,7 +2,7 @@
 
 namespace MattX23\RecipeApi;
 
-use MattX23\RecipeApi\Entity\Recipe;
+use MattX23\RecipeApi\Api\Recipes;
 
 class RecipeApi
 {
@@ -22,13 +22,8 @@ class RecipeApi
         $this->apiKey = $apiKey;
     }
 
-    public function hello()
-    {
-        return "Hello";
-    }
-
     public function recipes()
     {
-        return new Recipe($this->domain);
+        return new Recipes($this->domain, $this->apiKey);
     }
 }
