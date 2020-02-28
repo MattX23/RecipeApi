@@ -46,6 +46,6 @@ class RecipeApiServiceProvider extends ServiceProvider
             return new RecipeApi($domain, $apiKey);
         });
 
-        $this->app->alias('recipeapi', RecipeApi::class);
+//        $this->app->alias('recipeapi', RecipeApi::class);
     }
 }
