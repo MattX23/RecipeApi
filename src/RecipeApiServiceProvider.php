@@ -49,7 +49,6 @@ class RecipeApiServiceProvider extends ServiceProvider
 
         });
 
-
         $this->app->alias('recipeapi', RecipeApi::class);
     }
 }
