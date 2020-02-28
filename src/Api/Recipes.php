@@ -4,6 +4,7 @@
 namespace MattX23\RecipeApi\Api;
 
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Cache;
 use MattX23\RecipeApi\Entity\Recipe;
 
 class Recipes
@@ -36,6 +37,11 @@ class Recipes
         $this->domain = $domain;
     }
 
+    /**
+     * @param $contents
+     *
+     * @return array
+     */
     protected function toArray($contents)
     {
         return json_decode($contents);
@@ -46,10 +52,22 @@ class Recipes
      */
     public function random()
     {
+        $cache = Cache::store('redis')->get('getInspired');
+
+        $contents = $cache ?: $this->getRandomRecipe();
+
+        if (!$cache) Cache::store('redis')->add('getInspired', $contents, 3600);
+
+        return new Recipe($contents->recipes);
+    }
+
+    /**
+     * @return array
+     */
+    protected function getRandomRecipe()
+    {
         $response = $this->client->get($this->domain.'/recipes/random?number=1&apiKey='.$this->apiKey);
 
-        $contents = $this->toArray($response->getBody()->getContents());
-
-        return new Recipe($contents);
+        return $this->toArray($response->getBody()->getContents());
     }
 }
