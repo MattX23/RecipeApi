@@ -13,6 +13,8 @@ class Recipe
 
     public function __construct($parameters = [])
     {
-        $this->recipe = Arr::get($parameters,'recipes');
+        $fullRecipe = Arr::get($parameters,'recipes');
+
+        $this->recipe = $fullRecipe[0];
     }
 }

@@ -4,10 +4,10 @@
 namespace MattX23\RecipeApi\Facades;
 
 use Illuminate\Support\Facades\Facade;
+
 /**
  * @method \MattX23\RecipeApi\RecipeApi random
  */
-
 class RecipeApi extends Facade
 {
     /**

@@ -42,7 +42,7 @@ class Recipes
      *
      * @return array
      */
-    protected function toArray($contents)
+    protected function toArray($contents): array
     {
         return json_decode($contents);
     }
@@ -50,7 +50,7 @@ class Recipes
     /**
      * @return \MattX23\RecipeApi\Entity\Recipe
      */
-    public function random()
+    public function random(): Recipe
     {
         $cache = Cache::store('redis')->get('getInspired');
 
@@ -64,7 +64,7 @@ class Recipes
     /**
      * @return array
      */
-    protected function getRandomRecipe()
+    protected function getRandomRecipe(): array
     {
         $response = $this->client->get($this->domain.'/recipes/random?number=1&apiKey='.$this->apiKey);
 
