@@ -40,9 +40,9 @@ class Recipes
     /**
      * @param $contents
      *
-     * @return array
+     * @return object
      */
-    protected function toArray($contents): array
+    protected function toArray($contents): object
     {
         return json_decode($contents);
     }
@@ -62,9 +62,9 @@ class Recipes
     }
 
     /**
-     * @return array
+     * @return object
      */
-    protected function getRandomRecipe(): array
+    protected function getRandomRecipe(): object
     {
         $response = $this->client->get($this->domain.'/recipes/random?number=1&apiKey='.$this->apiKey);
 
