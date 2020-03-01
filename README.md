@@ -28,4 +28,5 @@ extendedIngredients
 id
 imageType
 analyzedInstructions
+imageType
 ```
