@@ -20,6 +20,9 @@ class Recipe
     public function __construct($parameters = [])
     {
         $recipe = isset($parameters->recipes) ? $parameters->recipes : $parameters;
+
+        if (!is_array($recipe)) $recipe = array($recipe);
+
         $this->recipe = collect(Arr::get($recipe,'0'));
     }
 
@@ -45,6 +48,7 @@ class Recipe
         $recipe->id = Arr::get($spoonacularRecipe,'id');
         $recipe->imageType = Arr::get($spoonacularRecipe,'imageType');
         $recipe->analyzedInstructions = Arr::get($spoonacularRecipe,'analyzedInstructions');
+        $recipe->imageType = Arr::get($spoonacularRecipe,'imageType');
 
         return new self(array($recipe));
     }

@@ -78,4 +78,16 @@ class Recipes
 
         return $this->toArray($response->getBody()->getContents());
     }
+
+    /**
+     * @param int $id
+     *
+     * @return object
+     */
+    public function getRecipeById(int $id): object
+    {
+        $response = $this->client->get($this->domain.'/recipes/'.$id.'/information?apiKey='.$this->apiKey);
+
+        return new Recipe($this->toArray($response->getBody()->getContents()));
+    }
 }
