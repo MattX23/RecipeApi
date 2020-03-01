@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @method \MattX23\RecipeApi\RecipeApi random
+ * @method \MattX23\RecipeApi\RecipeApi limited
  */
 class RecipeApi extends Facade
 {

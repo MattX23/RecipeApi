@@ -12,11 +12,26 @@ class Recipe
      */
     public $recipe;
 
+    /**
+     * Recipe constructor.
+     *
+     * @param array $parameters
+     */
     public function __construct($parameters = [])
     {
-        $spoonacularRecipe = collect(Arr::get($parameters,'0'));
+        $this->recipe = collect(Arr::get($parameters,'0'));
+    }
 
+    /**
+     * Return a simplified version of the recipe
+     *
+     * @return self
+     */
+    public function limited(): self
+    {
         $recipe = new stdClass;
+
+        $spoonacularRecipe = $this->recipe;
 
         $recipe->cookingMinutes = Arr::get($spoonacularRecipe,'cookingMinutes');
         $recipe->readyInMinutes = Arr::get($spoonacularRecipe,'readyInMinutes');
@@ -29,6 +44,6 @@ class Recipe
         $recipe->imageType = Arr::get($spoonacularRecipe,'imageType');
         $recipe->analyzedInstructions = Arr::get($spoonacularRecipe,'analyzedInstructions');
 
-        $this->recipe = $recipe;
+        return new self(array($recipe));
     }
 }

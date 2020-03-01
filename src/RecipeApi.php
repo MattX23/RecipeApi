@@ -22,7 +22,10 @@ class RecipeApi
         $this->apiKey = $apiKey;
     }
 
-    public function recipes()
+    /**
+     * @return \MattX23\RecipeApi\Api\Recipes
+     */
+    public function recipes(): Recipes
     {
         return new Recipes($this->domain, $this->apiKey);
     }
