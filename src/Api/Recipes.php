@@ -50,7 +50,7 @@ class Recipes
     /**
      * @return \MattX23\RecipeApi\Entity\Recipe
      */
-    public function random(): Recipe
+    public function getInspiredRecipe(): Recipe
     {
         $cache = Cache::store('redis')->get('getInspired');
 
@@ -59,6 +59,14 @@ class Recipes
         if (!$cache) Cache::store('redis')->add('getInspired', $contents, 3600);
 
         return new Recipe($contents->recipes);
+    }
+
+    /**
+     * @return \MattX23\RecipeApi\Entity\Recipe
+     */
+    public function random(): Recipe
+    {
+        return new Recipe($this->getRandomRecipe());
     }
 
     /**

@@ -19,7 +19,8 @@ class Recipe
      */
     public function __construct($parameters = [])
     {
-        $this->recipe = collect(Arr::get($parameters,'0'));
+        $recipe = isset($parameters->recipes) ? $parameters->recipes : $parameters;
+        $this->recipe = collect(Arr::get($recipe,'0'));
     }
 
     /**
@@ -33,6 +34,7 @@ class Recipe
 
         $spoonacularRecipe = $this->recipe;
 
+        $recipe->title = Arr::get($spoonacularRecipe,'title');
         $recipe->cookingMinutes = Arr::get($spoonacularRecipe,'cookingMinutes');
         $recipe->readyInMinutes = Arr::get($spoonacularRecipe,'readyInMinutes');
         $recipe->glutenFree = Arr::get($spoonacularRecipe,'glutenFree');
