@@ -17,6 +17,7 @@ Using the `RecipeApi` facade and `recipes()` method, the following recipe method
 You can also call `limited()` after any recipe method to return a simplified recipe that includes the following attributes:
 
 ```
+title
 cookingMinutes
 readyInMinutes
 glutenFree
