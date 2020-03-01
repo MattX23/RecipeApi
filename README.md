@@ -10,7 +10,7 @@ E.g. `RecipeApi::recipes()->random()`
 
 Using the `RecipeApi` facade and `recipes()` method, the following recipe methods are available:
 
-`random()` - returns a random recipe.
+`random()` - returns a random recipe. <br>
 `getRecipeById($id)` - returns a specific recipe based on a Spoonacular ID.
 
 --------
